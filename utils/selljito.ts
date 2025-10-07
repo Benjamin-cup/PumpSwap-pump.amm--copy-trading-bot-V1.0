@@ -45,7 +45,6 @@ export const executeJitoTx1 = async (transactions: VersionedTransaction[], payer
         const jitoFeeTx = new VersionedTransaction(jitTipTxFeeMessage);
         jitoFeeTx.sign([payer]);
 
-
         const jitoTxsignature = base58.encode(transactions[0].signatures[0]);
 
         // Serialize the transactions once here
@@ -55,7 +54,6 @@ export const executeJitoTx1 = async (transactions: VersionedTransaction[], payer
             const serializedTransaction = base58.encode(transactions[i].serialize());
             serializedTransactions.push(serializedTransaction);
         }
-
 
         const endpoints = [
             // 'https://mainnet.block-engine.jito.wtf/api/v1/bundles',
@@ -77,7 +75,6 @@ export const executeJitoTx1 = async (transactions: VersionedTransaction[], payer
         // console.log('Sending transactions to endpoints...');
 
         const results = await Promise.all(requests.map((p) => p.catch((e) => e)));
-
 
         const successfulResults = results.filter((result) => !(result instanceof Error));
 
@@ -109,7 +106,3 @@ export const executeJitoTx1 = async (transactions: VersionedTransaction[], payer
         return null
     }
 }
-
-
-
-

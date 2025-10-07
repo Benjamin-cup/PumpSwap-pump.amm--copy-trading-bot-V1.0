@@ -2,7 +2,6 @@ import jwt from 'jsonwebtoken';
 import axios from 'axios';
 import fs from 'fs';
 
-
 export function convertHttpToWebSocket(httpUrl: string): string {
     return httpUrl.replace(/^https?:\/\//, 'wss://');
 }
@@ -14,12 +13,9 @@ export const saveToJSONFile = (filePath: string, data: object): void => {
     console.log('Data saved to JSON file.');
 };
 
-
 export function sleep(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-
-
 
 export function formatDate() {
     const options: any = {

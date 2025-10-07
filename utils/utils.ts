@@ -13,8 +13,6 @@ export const retrieveEnvVariable = (variableName: string, logger: Logger) => {
     return variable;
 };
 
-
-
 export const getSellTxWithJupiter = async (wallet: Keypair, baseMint: PublicKey, amount: number) => {
     try {
         const quoteResponse = await (

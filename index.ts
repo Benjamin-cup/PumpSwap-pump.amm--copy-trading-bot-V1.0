@@ -27,7 +27,6 @@ import { executeJitoTx1 } from "./utils/selljito";
 
 dotenv.config()
 
-
 const title = `
  ██████╗ ██████╗ ██████╗ ██╗   ██╗    ████████╗██████╗  █████╗ ██████╗ ██╗███╗   ██╗ ██████╗     ██████╗  ██████╗ ████████╗
 ██╔════╝██╔═══██╗██╔══██╗╚██╗ ██╔╝    ╚══██╔══╝██╔══██╗██╔══██╗██╔══██╗██║████╗  ██║██╔════╝     ██╔══██╗██╔═══██╗╚══██╔══╝
@@ -47,7 +46,6 @@ const title = `
 -------------------------------------------------------- PumpSwap Version 1.0 --------------------------------------------------------
 
 `;
-
 
 console.log(title, '\n');
 
@@ -121,7 +119,6 @@ function sendSubscribeRequest(
   });
 }
 
-
 function handleStreamEvents(stream: ClientDuplexStream<SubscribeRequest, SubscribeUpdate>): Promise<void> {
   return new Promise<void>((resolve, reject) => {
     stream.on('data', async (data) => {
@@ -144,11 +141,9 @@ function handleStreamEvents(stream: ClientDuplexStream<SubscribeRequest, Subscri
   });
 }
 
-
 let isStopped = false;
 
 async function handleData(data: SubscribeUpdate, stream: ClientDuplexStream<SubscribeRequest, SubscribeUpdate>) {
-
 
   if (isStopped) {
     return; // Skip processing if the stream is stopped
