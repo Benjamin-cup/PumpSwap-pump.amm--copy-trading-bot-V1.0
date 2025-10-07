@@ -55,7 +55,6 @@ export const getBuyTxWithJupiter = async (wallet: Keypair, quoteMint: PublicKey,
   }
 };
 
-
 export const getSellTxWithJupiter = async (wallet: Keypair, baseMint: PublicKey, amount: number) => {
   try {
     const quoteResponse = await (
